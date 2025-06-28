@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Memória</title>
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Jogo da Memória" class="game-logo">
+    </div>
+    <div class="game-stats-container">
+        <p id="message"></p> 
+        <p id="matches-counter">Pares Encontrados: 0</p>
+        <p id="errors-counter">Erros: 0</p>
+    </div>
+
+    <section class="game-board" id="gameBoard"></section>
+    
+    <a href="index.html" class="back-button">
+        <img src="img/botoes/voltar.svg" alt="Voltar para a seleção de temas" class="back-button-image">
+    </a>
+
+    <div id="popup-nome" class="popup active">
+        <div class="popup-content">
+            <h2>Qual é o seu nome?</h2>
+            <input type="text" id="nomeAluno" placeholder="Digite seu nome" maxlength="20"/>
+            <h2>Quantos anos você tem?</h2>
+            <input type="number" id="idadeAluno" placeholder="Ex: 5" min="1" max="12">
+            <a href="#" onclick="confirmarInicioJogo(); return false;" class="action-button-link">
+                <img src="img/botoes/comecar.svg" alt="Começar Jogo" class="action-button-image">
+            </a>
+        </div>
+    </div>
+
+    <div id="popup-fim" class="popup">
+        <div class="popup-content">
+            <h2 id="mensagemFinal">Parabéns, você venceu!</h2>
+            <img id="starRatingImage" src="" alt="Avaliação de Estrelas" style="width: 100px; height: auto; margin-top: 15px;">
+            <p id="errosFinal"></p>
+            <p id="elementosEncontrados"></p>
+            <div class="popup-buttons-container">
+                <a href="#" onclick="recarregarJogo(); return false;" class="action-button-link">
+                    <img src="img/botoes/jogar_novamente.svg" alt="Jogar Novamente" class="action-button-image">
+                </a>
+                <a href="#" onclick="voltarParaTemas(); return false;" class="action-button-link">
+                    <img src="img/botoes/mudar_tema.svg" alt="Mudar Tema" class="action-button-image">
+                </a>
+                <a href="#" id="btnProximoTemaLink" onclick="proximoTema(); return false;" class="action-button-link">
+                    <img src="img/botoes/proximo_tema.svg" alt="Próximo Tema" class="action-button-image">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-final-geral" class="popup">
+        <div class="popup-content">
+            <img src="img/trofeu.png" alt="Troféu de Conquista" style="width: 100px; height: auto; margin: 0 auto 5px auto; display: block;">
+            <h2>Parabéns, <span id="nomeAlunoFinalGeral"></span>!</h2>
+            <h3>Você completou todos os temas!</h3>
+
+            <div id="resumoTemasVistos">
+            </div>
+            <div class="popup-buttons-container">
+                <a href="#" onclick="voltarParaTemas(); return false;" class="action-button-link">
+                    <img src="img/botoes/jogar_novamente.svg" alt="Jogar Novamente" class="action-button-image">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

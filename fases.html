@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha a Fase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Qual a sua idade? 🧩</h1>
+  <div class="fase-container">
+    <button onclick="startGame(4)">🐣 Até 5 anos (4 Pares)</button>
+    <button onclick="startGame(6)">🧒 6 a 8 anos (6 Pares)</button>
+    <button onclick="startGame(8)">🧑 9 anos ou mais (8 Pares)</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tema = params.get('tema');
+
+    function startGame(pares) {
+      // Passando o número de pares como 'numPares' para jogo.html
+      window.location.href = `jogo.html?tema=${tema}&numPares=${pares}`;
+    }
+  </script>
+</body>
+</html>
